@@ -1,18 +1,22 @@
 
-import { IsString, IsNumber, IsArray, IsNotEmpty } from 'class-validator';
+import { IsString, IsNumber, IsArray, IsNotEmpty, IsOptional } from 'class-validator';
 
 export class CreateAgreementDto {
   @IsNumber()
   @IsNotEmpty()
-  Start_date: number;
+  start_date: number;
 
   @IsNumber()
   @IsNotEmpty()
-  End_date: number;
+  end_date: number;
 
   @IsString()
   @IsNotEmpty()
-  Rental_amount: string;
+  rental_amount: string;
+
+ 
+
+  
 
 
   

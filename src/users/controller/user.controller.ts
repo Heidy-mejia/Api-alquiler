@@ -22,15 +22,19 @@ export class UserController {
         return this.userService.findOne(id);
     
   }
+  @Delete(':id')
+    remove(@Param('id', ParseIntPipe)id: number){
+        return this.userService.remove(id);
+    }
 
-  @Patch(':id')
+    @Patch(':id')
     update(
         @Param('id', ParseIntPipe)id: number,
-        @Body()CreateUserDto :CreateUserDto,
+        @Body()createUserDto :CreateUserDto,
         
     )
     {
-        return this.userService.update(id, CreateUserDto)
+        return this.userService.update(id, createUserDto)
     }
 }
 

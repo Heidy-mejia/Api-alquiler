@@ -6,7 +6,7 @@ import { CreateAgreementDto } from '../dto/agreement.dto';
 
 
 
-@Controller('agreement')
+@Controller('agreements')
 export class AgreementController {
   constructor(private readonly agreementService: AgreementService) {}
 
@@ -24,6 +24,10 @@ export class AgreementController {
     findOne(@Param('id', ParseIntPipe)id: number){
         return this.agreementService.findOne(id);
     
+  }
+  @Delete(':id')
+  remove(@Param('id', ParseIntPipe)id: number){
+      return this.agreementService.remove(id);
   }
 
   @Patch(':id')

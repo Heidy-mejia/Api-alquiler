@@ -5,7 +5,7 @@ import { Category } from '../entities/category.entity';
 
 
 
-@Controller('category')
+@Controller('categories')
 export class categoryController {
   constructor(private readonly categoryService: CategoryService) {}
 
@@ -24,6 +24,10 @@ export class categoryController {
         return this.categoryService.findOne(id);
     
   }
+  @Delete(':id')
+    remove(@Param('id', ParseIntPipe)id: number){
+        return this.categoryService.remove(id);
+    }
 
   @Patch(':id')
     update(

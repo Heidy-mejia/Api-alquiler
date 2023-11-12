@@ -28,12 +28,17 @@ export class CategoryService {
       return   this.CategoryRepository.find({
           order: {id: 'ASC'},
       });
+      
+      
   }
-
+  //eliminar una categoria
+  async remove(id: number) {
+    const category = await this.findOne(id);
+    await this.CategoryRepository.remove(category);
   
-
- 
-
+    return ' Categoria eliminada';
+    }
+  
   async update(id: number, cambios: CreateCategoryDto){
     const oldCategory = await this.findOne(id);
     const updateCategory= await this.CategoryRepository.merge(oldCategory, cambios);

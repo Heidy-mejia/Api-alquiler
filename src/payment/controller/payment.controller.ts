@@ -4,7 +4,7 @@ import { CreatePaymentDto } from '../dto/payment.dto';
 import { Payment } from '../entities/payment.entity';
 
 
-@Controller('payment')
+@Controller('payments')
 export class PaymentController {
   constructor(private readonly paymentService: PaymentService) {}
 
@@ -23,6 +23,11 @@ export class PaymentController {
         return this.paymentService.findOne(id);
     
   }
+  @Delete(':id')
+    remove(@Param('id', ParseIntPipe)id: number){
+        return this.paymentService.remove(id);
+    }
+  
 
   @Patch(':id')
     update(

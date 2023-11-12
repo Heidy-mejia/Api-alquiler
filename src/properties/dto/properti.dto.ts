@@ -17,11 +17,11 @@ export class CreatePropertyDto {
 
   @IsString()
   @IsNotEmpty()
-  pentalprice: string;
+  rentalprice: string;
 
   @IsNumber()
   @IsNotEmpty()
-  AvailabilityDate: number;
+  availabilityDate: number;
 
   @IsArray({each:true})
   @IsString()

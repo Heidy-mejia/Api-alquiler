@@ -5,7 +5,7 @@ import { Customer } from '../entities/customers.entity';
 import { CreateCustomerDto } from '../dto/customer.dto';
 
 
-@Controller('customer')
+@Controller('customers')
 export class customerController {
   constructor(private readonly customerService: CustomerService) {}
 
@@ -24,6 +24,10 @@ export class customerController {
         return this.customerService.findOne(id);
     
   }
+  @Delete(':id')
+    remove(@Param('id', ParseIntPipe)id: number){
+        return this.customerService.remove(id);
+    }
 
   @Patch(':id')
     update(

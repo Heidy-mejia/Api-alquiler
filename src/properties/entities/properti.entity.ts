@@ -77,5 +77,4 @@ export class Property {
   })
   images?:PropertiesImage[];
 
-  // Define otras columnas relevantes
 }

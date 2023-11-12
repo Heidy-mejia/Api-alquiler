@@ -1,5 +1,5 @@
 
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity()
 export class Agreement {
@@ -7,13 +7,14 @@ export class Agreement {
   id: number;
 
   @Column()
-  Start_date: number;
+  start_date: number;
 
   @Column()
-  End_date: number;
+  end_date: number;
 
   @Column()
-  Rental_amount: string;
+  rental_amount: string;
+
 
  
 

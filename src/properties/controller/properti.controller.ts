@@ -22,6 +22,10 @@ export class PropertiesController {
         return this.propertiesService.findOne(id);
     
   }
+  @Delete(':id')
+    remove(@Param('id', ParseIntPipe)id: number){
+        return this.propertiesService.remove(id);
+    }
 
   @Patch(':id')
     update(

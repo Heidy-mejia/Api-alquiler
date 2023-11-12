@@ -33,7 +33,12 @@ export class PropertiesService {
     return this.propertyRepository.findOne({
       where: { id },
       relations: {
+        images: true,
         autor: true,
+        agreement: true,
+        category: true,
+        customer: true,
+        payment: true,
       },
     });
   }
@@ -57,7 +62,7 @@ export class PropertiesService {
    async remove(id:number){
     const Property =await this.findOne(id);
     await this.propertyRepository.remove(Property);
-    return 'Property eliminado';
+    return 'Propiedad eliminadad';
 }
 
   

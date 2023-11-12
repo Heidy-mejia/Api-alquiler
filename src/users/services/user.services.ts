@@ -61,6 +61,12 @@ export class UserService {
           order: {id: 'ASC'},
       });
   }
+  //eliminar un usuario
+  async remove(id:number){
+    const user =await this.findOne(id);
+    await this.userRepository.remove(user);
+    return 'Usuario eliminado';
+ }
 
   
 

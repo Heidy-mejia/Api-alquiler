@@ -29,6 +29,12 @@ export class CustomerService {
           order: {id: 'ASC'},
       });
   }
+  //eliminar un usuario
+  async remove(id:number){
+    const user =await this.findOne(id);
+    await this.CustomerRepository.remove(user);
+    return 'Cliente eliminado';
+ }
 
   
 

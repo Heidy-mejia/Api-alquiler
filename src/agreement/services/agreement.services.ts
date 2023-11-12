@@ -30,15 +30,18 @@ export class AgreementService {
           order: {id: 'ASC'},
       });
   }
-
-  
-
- 
+   //eliminar un usuario
+   async remove(id:number){
+    const user =await this.findOne(id);
+    await this.AgreementRepository.remove(user);
+    return 'Acuerdo eliminado';
+ }
 
   async update(id: number, cambios: CreateAgreementDto){
     const oldAgreement = await this.findOne(id);
     const updateAgreement= await this.AgreementRepository.merge(oldAgreement, cambios);
     return this.AgreementRepository.save(updateAgreement);
 }
+
 }
 
